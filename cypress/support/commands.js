@@ -30,7 +30,7 @@ Cypress.Commands.add('typeGeneratedData', (placeholder, data) => {
 });
 
 Cypress.Commands.add('clickSignUpBtn', () => {
-  cy.get(':nth-child(3) > .nav-link')
+  cy.contains('.nav-link', 'Sign Up')
     .click();
 });
 
