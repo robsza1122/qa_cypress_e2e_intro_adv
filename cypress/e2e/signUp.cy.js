@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import generateUser from '../support/generateUser';
+const generateUser = require('../support/generate');
 
 describe('Sign Up page', () => {
   beforeEach(() => {
