@@ -23,3 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('typeGeneratedData', (placeholder, data) => {
+  cy.get(`[placeholder="${placeholder}"]`)
+    .type(data);
+});
+
+Cypress.Commands.add('clickSignUpBtn', () => {
+  cy.get(':nth-child(3) > .nav-link')
+    .click();
+});
+
+Cypress.Commands.add('clickSubmitBtn', () => {
+  cy.get('[type="submit"]')
+    .click();
+});
+
+Cypress.Commands.add('assertUserAfterRegister', (username) => {
+  cy.contains('.nav-link', username)
+    .should('exist');
+});
+
+// eslint-disable-next-line n/handle-callback-err
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false;
+});
